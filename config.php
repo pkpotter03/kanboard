@@ -6,6 +6,9 @@
 /* Make sure all paths are absolute by using __DIR__ where needed  */
 /*******************************************************************/
 
+// Add this near the top of config.php, with other security settings
+define('CSRF_ENABLED', false);  // Set to false for development/testing
+
 // Data folder (must be writeable by the web server user and absolute)
 define('DATA_DIR', __DIR__.DIRECTORY_SEPARATOR.'data');
 

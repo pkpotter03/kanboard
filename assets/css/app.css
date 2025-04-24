@@ -1,0 +1,231 @@
+.voice-command-container {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    position: relative;
+}
+
+.voice-btn {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: green;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.voice-btn:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.voice-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.voice-btn.hidden {
+    display: none;
+}
+
+.voice-status {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    z-index: 1000;
+}
+
+.voice-status.hidden {
+    display: none;
+}
+
+.voice-status.error {
+    background: #fff0f0;
+    color: #d43939;
+    border-color: #ffcdd2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#startVoiceBtn.active {
+    color: #4CAF50;
+}
+
+.voice-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* Voice Command Buttons Base Styles */
+#startVoiceBtn,
+#stopVoiceBtn {
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Start Button Styles */
+#startVoiceBtn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+#startVoiceBtn:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#startVoiceBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stop Button Styles */
+#stopVoiceBtn {
+    background: linear-gradient(135deg, #f44336, #e53935);
+    color: white;
+}
+
+#stopVoiceBtn:hover {
+    background: linear-gradient(135deg, #e53935, #d32f2f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#stopVoiceBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Voice Status Styles */
+#voiceStatus {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #f5f5f5;
+    border-left: 4px solid #4CAF50;
+}
+
+#voiceStatus.error {
+    background: #ffebee;
+    border-left-color: #f44336;
+}
+
+/* Pulse Animation for Active State */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
+
+/* Add icons and animation when listening */
+#startVoiceBtn::before {
+    content: "🎤";
+    margin-right: 8px;
+}
+
+#stopVoiceBtn::before {
+    content: "⏹️";
+    margin-right: 8px;
+}
+
+/* Active state animation */
+#startVoiceBtn.active {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #startVoiceBtn,
+    #stopVoiceBtn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    #voiceStatus {
+        font-size: 13px;
+    }
+}
+
+/* Optional: Add a loading indicator */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* Add these styles for the project selector */
+.project-selector {
+    padding: 20px;
+    text-align: center;
+}
+
+.project-selector h2 {
+    margin-bottom: 15px;
+}
+
+.project-selector p {
+    margin-bottom: 20px;
+}
+
+.project-select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.project-selector .btn {
+    min-width: 120px;
+} 

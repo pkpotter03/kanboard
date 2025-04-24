@@ -4,6 +4,7 @@ namespace Kanboard\Core\Http;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Csv;
+use Kanboard\Core\Security\ContentSecurityPolicy;
 
 /**
  * Response class
@@ -221,6 +222,9 @@ class Response extends Base
         foreach ($this->httpHeaders as $header => $value) {
             header($header.': '.$value);
         }
+
+        // Add CSP headers using our new policy class
+        header('Content-Security-Policy: ' . ContentSecurityPolicy::getPolicy());
 
         if (! empty($this->httpBody)) {
             echo $this->httpBody;
