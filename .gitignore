@@ -23,6 +23,7 @@ Thumbs.db
 *.log
 logs/
 data/debug.log
+data/db.sqlite
 
 # Cache
 cache/
