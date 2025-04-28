@@ -62,7 +62,7 @@ define('MAIL_BCC', '');
 define('MAIL_TRANSPORT', 'smtp');
 
 // SMTP configuration to use when the "smtp" transport is chosen
-define('MAIL_SMTP_HOSTNAME', 'smtp.gmail.com'); 
+define('MAIL_SMTP_HOSTNAME', $_ENV['MAIL_SMTP_HOSTNAME'] ?? ''); 
 define('MAIL_SMTP_PORT', 587);
 define('MAIL_SMTP_USERNAME', $_ENV['MAIL_SMTP_USERNAME'] ?? '');
 define('MAIL_SMTP_PASSWORD', $_ENV['MAIL_SMTP_PASSWORD'] ?? '');
