@@ -211,6 +211,8 @@ use Pimple\Container;
  * @property \Symfony\Component\EventDispatcher\EventDispatcher      $dispatcher
  * @property \Symfony\Component\Console\Application                  $cli
  * @property \JsonRPC\Server                                         $api
+ * @property \Kanboard\Core\Telegram\TelegramClient                   $telegramClient
+ * @property \Kanboard\Core\WhatsApp\WhatsAppClient                   $whatsappClient
  */
 abstract class Base
 {

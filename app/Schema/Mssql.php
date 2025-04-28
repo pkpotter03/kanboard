@@ -732,3 +732,8 @@ function version_1(PDO $pdo)
         CREATE INDEX transitions_user_index ON dbo.transitions(user_id);
     ");
 }
+
+function version_4(PDO $pdo)
+{
+    $pdo->exec("ALTER TABLE dbo.users ADD whatsapp_number nvarchar(20) DEFAULT NULL");
+}

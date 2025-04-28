@@ -1346,6 +1346,7 @@ function version_16(PDO $pdo)
     );
 
     $pdo->exec("ALTER TABLE tasks ADD COLUMN category_id INTEGER DEFAULT 0");
+    $pdo->exec("ALTER TABLE users ADD COLUMN whatsapp_number TEXT DEFAULT NULL");
 }
 
 function version_15(PDO $pdo)

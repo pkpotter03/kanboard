@@ -16,6 +16,14 @@
         <?= $this->form->label(t('Email'), 'email') ?>
         <?= $this->form->email('email', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_email') ? 'autocomplete="email"' : 'readonly')) ?>
 
+        <div class="form-field">
+            <?= $this->form->label(t('WhatsApp Number'), 'whatsapp_number') ?>
+            <div style="display: flex; align-items: center;">
+                <?= $this->form->text('whatsapp_number', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_whatsapp_number') ? 'autocomplete="off"' : 'readonly', 'placeholder' => '+1234567890')) ?>
+                <img src="<?= $this->url->base() ?>assets/img/whatsapp-icon.svg" alt="WhatsApp QR" class="qr-icon" style="margin-left: 50px;">
+            </div>
+        </div>
+
         <?= $this->form->label(t('Telegram ID'), 'telegram_id') ?>
         <?= $this->form->text('telegram_id', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_telegram_id') ? 'autocomplete="off"' : 'readonly')) ?>
     </fieldset>

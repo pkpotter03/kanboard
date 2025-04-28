@@ -680,6 +680,8 @@ function version_90(PDO $pdo)
 
 function version_89(PDO $pdo)
 {
+    $pdo->exec("ALTER TABLE users ADD COLUMN whatsapp_number VARCHAR(20) DEFAULT NULL");
+
     $pdo->exec("
         CREATE TABLE user_has_unread_notifications (
             id INT NOT NULL AUTO_INCREMENT,

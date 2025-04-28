@@ -61,11 +61,19 @@ define('MAIL_SMTP_ENCRYPTION', 'tls'); // Valid values are null (not a string "n
 // Telegram Bot Token for notifications
 define('TELEGRAM_BOT_TOKEN', '7805150108:AAGZBblIruVK8xtVR2u1FeP7clFGvIqyHUI');
 
+// Twilio WhatsApp API Configuration
+define('TWILIO_ACCOUNT_SID', 'AC306e3aa189f4ee10173f9df876977116');
+define('TWILIO_AUTH_TOKEN', '2a14eb92d451674e67c222adae185d7f');
+define('TWILIO_WHATSAPP_NUMBER', '+14155238886'); 
+
+
+define('TWILIO_API_URL', 'https://api.twilio.com/2010-04-01/Accounts/' . TWILIO_ACCOUNT_SID . '/Messages.json');
+
 // Sendmail command to use when the transport is "sendmail"
 define('MAIL_SENDMAIL_COMMAND', '/usr/sbin/sendmail -bs');
 
 // Run automatically database migrations
-// If set to false, you will have to run manually the SQL migrations from the CLI during the next Kanboard upgrade
+// If set to false, you will have to run manually the SQL migrations from the CLI ing the next Kanboard upgrade
 // Do not run the migrations from multiple processes at the same time (example: web page + background worker)
 define('DB_RUN_MIGRATIONS', true);
 

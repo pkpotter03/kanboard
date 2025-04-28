@@ -251,7 +251,7 @@ class UserModel extends Base
      * @access public
      * @param  array    $values    Form values
      */
-    public function prepare(array &$values)
+    protected function prepare(array &$values)
     {
         if (isset($values['password'])) {
             if (! empty($values['password'])) {
@@ -263,6 +263,10 @@ class UserModel extends Base
 
         if (isset($values['username'])) {
             $values['username'] = trim($values['username']);
+        }
+
+        if (isset($values['whatsapp_number'])) {
+            $values['whatsapp_number'] = trim($values['whatsapp_number']);
         }
 
         $this->helper->model->removeFields($values, array('confirmation', 'current_password'));

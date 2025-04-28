@@ -18,6 +18,14 @@
                 <?= $this->form->label(t('Email'), 'email') ?>
                 <?= $this->form->email('email', $values, $errors, ['autocomplete="email"']) ?>
 
+                <div class="form-field">
+                    <?= $this->form->label(t('WhatsApp Number'), 'whatsapp_number') ?>
+                    <div style="display: flex; align-items: center;">
+                        <?= $this->form->text('whatsapp_number', $values, $errors, ['autocomplete="off"', 'placeholder' => '+1234567890']) ?>
+                        <img src="<?= $this->url->base() ?>assets/img/whatsapp-icon.svg" alt="WhatsApp QR" class="qr-icon" style="margin-left: 50px;">
+                    </div>
+                </div>
+
                 <?= $this->form->label(t('Telegram ID'), 'telegram_id') ?>
                 <?= $this->form->text('telegram_id', $values, $errors, ['autocomplete="off"']) ?>
             </fieldset>

@@ -9,6 +9,7 @@ use Kanboard\Model\ProjectNotificationTypeModel;
 use Kanboard\Notification\MailNotification as MailNotification;
 use Kanboard\Notification\WebNotification as WebNotification;
 use Kanboard\Notification\TelegramNotification as TelegramNotification;
+use Kanboard\Notification\WhatsAppNotification as WhatsAppNotification;
 
 /**
  * Notification Provider
@@ -32,6 +33,7 @@ class NotificationProvider implements ServiceProviderInterface
             $type->setType(MailNotification::TYPE, t('Email'), '\Kanboard\Notification\MailNotification');
             $type->setType(WebNotification::TYPE, t('Web'), '\Kanboard\Notification\WebNotification');
             $type->setType(TelegramNotification::TYPE, t('Telegram'), '\Kanboard\Notification\TelegramNotification');
+            $type->setType(WhatsAppNotification::TYPE, t('WhatsApp'), '\Kanboard\Notification\WhatsAppNotification');
             return $type;
         };
 

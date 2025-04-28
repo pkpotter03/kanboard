@@ -1333,7 +1333,8 @@ CREATE TABLE "public"."users" (
     "is_active" boolean DEFAULT true,
     "avatar_path" character varying(255),
     "api_access_token" character varying(255) DEFAULT NULL::character varying,
-    "filter" "text" DEFAULT NULL::character varying
+    "filter" "text" DEFAULT NULL::character varying,
+    "whatsapp_number" character varying(20) DEFAULT NULL
 );
 
 
