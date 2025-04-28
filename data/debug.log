@@ -6747,3 +6747,321 @@ New task #8: whats app test
 [2025-04-28 16:12:29] [debug] APP: memory_usage=5.51M
 [2025-04-28 16:12:29] [debug] APP: uri=/?controller=UserCreationController&action=show
 [2025-04-28 16:12:29] [debug] ###############################################
+[2025-04-28 18:13:26] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:13:26] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:13:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:13:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:13:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:13:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:13:26] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:13:26] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:13:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:13:26] [debug] SQL: param[2]: '1745856806'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=8.1777572631836E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=8.1777572631836E-5
+[2025-04-28 16:13:26] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:13:26] [debug] SQL: query_duration=3.9815902709961E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.0001215934753418
+[2025-04-28 16:13:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:13:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:13:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=6.7949295043945E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00018954277038574
+[2025-04-28 16:13:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:13:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:13:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=0.00011014938354492
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00029969215393066
+[2025-04-28 16:13:26] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:13:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=2.288818359375E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00032258033752441
+[2025-04-28 16:13:26] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:13:26] [debug] SQL: query_duration=2.5033950805664E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00034761428833008
+[2025-04-28 16:13:26] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:13:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:13:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:13:26] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=3.0994415283203E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00037860870361328
+[2025-04-28 16:13:26] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:13:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=3.3855438232422E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.0004124641418457
+[2025-04-28 16:13:26] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:13:26] [debug] SQL: param[1]: '1745858246'
+[2025-04-28 16:13:26] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:13:26] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:13:26] [debug] SQL: query_duration=3.0994415283203E-5
+[2025-04-28 16:13:26] [debug] SQL: total_execution_time=0.00044345855712891
+[2025-04-28 16:13:26] [debug] APP: nb_queries=9
+[2025-04-28 16:13:26] [debug] APP: rendering_time=0.028000831604004
+[2025-04-28 16:13:26] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:13:26] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:13:26] [debug] ###############################################
+[2025-04-28 18:14:26] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:14:26] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:14:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:14:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:14:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:14:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:14:26] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:14:26] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:14:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:14:26] [debug] SQL: param[2]: '1745856866'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=8.392333984375E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=8.392333984375E-5
+[2025-04-28 16:14:26] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:14:26] [debug] SQL: query_duration=4.1961669921875E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00012588500976562
+[2025-04-28 16:14:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:14:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:14:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=6.103515625E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00018692016601562
+[2025-04-28 16:14:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:14:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:14:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=6.9856643676758E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00025677680969238
+[2025-04-28 16:14:26] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:14:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=1.978874206543E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00027656555175781
+[2025-04-28 16:14:26] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:14:26] [debug] SQL: query_duration=2.9087066650391E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.0003056526184082
+[2025-04-28 16:14:26] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:14:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:14:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:14:26] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=3.2901763916016E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00033855438232422
+[2025-04-28 16:14:26] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:14:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=5.2928924560547E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00039148330688477
+[2025-04-28 16:14:26] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:14:26] [debug] SQL: param[1]: '1745858306'
+[2025-04-28 16:14:26] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:14:26] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:14:26] [debug] SQL: query_duration=4.1007995605469E-5
+[2025-04-28 16:14:26] [debug] SQL: total_execution_time=0.00043249130249023
+[2025-04-28 16:14:26] [debug] APP: nb_queries=9
+[2025-04-28 16:14:26] [debug] APP: rendering_time=0.034687042236328
+[2025-04-28 16:14:26] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:14:26] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:14:26] [debug] ###############################################
+[2025-04-28 18:15:26] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:15:26] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:15:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:15:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:15:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:15:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:15:26] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:15:26] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:15:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:15:26] [debug] SQL: param[2]: '1745856926'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=9.2029571533203E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=9.2029571533203E-5
+[2025-04-28 16:15:26] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:15:26] [debug] SQL: query_duration=4.1007995605469E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00013303756713867
+[2025-04-28 16:15:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:15:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:15:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=6.103515625E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00019407272338867
+[2025-04-28 16:15:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:15:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:15:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=7.7962875366211E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00027203559875488
+[2025-04-28 16:15:26] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:15:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=1.9073486328125E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00029110908508301
+[2025-04-28 16:15:26] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:15:26] [debug] SQL: query_duration=2.4080276489258E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00031518936157227
+[2025-04-28 16:15:26] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:15:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:15:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:15:26] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=3.6001205444336E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.0003511905670166
+[2025-04-28 16:15:26] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:15:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=3.3855438232422E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00038504600524902
+[2025-04-28 16:15:26] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:15:26] [debug] SQL: param[1]: '1745858366'
+[2025-04-28 16:15:26] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:15:26] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:15:26] [debug] SQL: query_duration=6.103515625E-5
+[2025-04-28 16:15:26] [debug] SQL: total_execution_time=0.00044608116149902
+[2025-04-28 16:15:26] [debug] APP: nb_queries=9
+[2025-04-28 16:15:26] [debug] APP: rendering_time=0.029725790023804
+[2025-04-28 16:15:26] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:15:26] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:15:26] [debug] ###############################################
+[2025-04-28 18:16:26] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:16:26] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:16:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:16:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:16:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:16:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:16:26] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:16:26] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:16:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:16:26] [debug] SQL: param[2]: '1745856986'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=9.8943710327148E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=9.8943710327148E-5
+[2025-04-28 16:16:26] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:16:26] [debug] SQL: query_duration=7.9154968261719E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00017809867858887
+[2025-04-28 16:16:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:16:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:16:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=8.7976455688477E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00026607513427734
+[2025-04-28 16:16:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:16:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:16:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=9.9897384643555E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.0003659725189209
+[2025-04-28 16:16:26] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:16:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=3.6001205444336E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00040197372436523
+[2025-04-28 16:16:26] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:16:26] [debug] SQL: query_duration=3.0994415283203E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00043296813964844
+[2025-04-28 16:16:26] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:16:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:16:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:16:26] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=6.0081481933594E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00049304962158203
+[2025-04-28 16:16:26] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:16:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=5.3882598876953E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00054693222045898
+[2025-04-28 16:16:26] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:16:26] [debug] SQL: param[1]: '1745858426'
+[2025-04-28 16:16:26] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:16:26] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:16:26] [debug] SQL: query_duration=5.0067901611328E-5
+[2025-04-28 16:16:26] [debug] SQL: total_execution_time=0.00059700012207031
+[2025-04-28 16:16:26] [debug] APP: nb_queries=9
+[2025-04-28 16:16:26] [debug] APP: rendering_time=0.038094043731689
+[2025-04-28 16:16:26] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:16:26] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:16:26] [debug] ###############################################
+[2025-04-28 18:17:26] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:17:26] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:17:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:17:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:17:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:17:26] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:17:26] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:17:26] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:17:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:17:26] [debug] SQL: param[2]: '1745857046'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=9.7036361694336E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=9.7036361694336E-5
+[2025-04-28 16:17:26] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:17:26] [debug] SQL: query_duration=6.3180923461914E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00016021728515625
+[2025-04-28 16:17:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:17:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:17:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=8.5830688476562E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00024604797363281
+[2025-04-28 16:17:26] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:17:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:17:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=9.1075897216797E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00033712387084961
+[2025-04-28 16:17:26] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:17:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=2.1934509277344E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00035905838012695
+[2025-04-28 16:17:26] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:17:26] [debug] SQL: query_duration=2.8133392333984E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00038719177246094
+[2025-04-28 16:17:26] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:17:26] [debug] SQL: param[1]: '1'
+[2025-04-28 16:17:26] [debug] SQL: param[2]: '1'
+[2025-04-28 16:17:26] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=4.9829483032227E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00043702125549316
+[2025-04-28 16:17:26] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:17:26] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=5.5789947509766E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00049281120300293
+[2025-04-28 16:17:26] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:17:26] [debug] SQL: param[1]: '1745858486'
+[2025-04-28 16:17:26] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:17:26] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:17:26] [debug] SQL: query_duration=4.0054321289062E-5
+[2025-04-28 16:17:26] [debug] SQL: total_execution_time=0.00053286552429199
+[2025-04-28 16:17:26] [debug] APP: nb_queries=9
+[2025-04-28 16:17:26] [debug] APP: rendering_time=0.053937911987305
+[2025-04-28 16:17:26] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:17:26] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:17:26] [debug] ###############################################
+[2025-04-28 18:18:27] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-04-28 18:18:27] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-04-28 16:18:27] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-04-28 16:18:27] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-04-28 16:18:27] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-04-28 16:18:27] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-04-28 16:18:27] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserAjaxController::status
+[2025-04-28 16:18:27] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-04-28 16:18:27] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:18:27] [debug] SQL: param[2]: '1745857107'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=0.00012516975402832
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00012516975402832
+[2025-04-28 16:18:27] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-04-28 16:18:27] [debug] SQL: query_duration=4.6014785766602E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00017118453979492
+[2025-04-28 16:18:27] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:18:27] [debug] SQL: param[1]: '1'
+[2025-04-28 16:18:27] [debug] SQL: param[2]: '1'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=6.6995620727539E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00023818016052246
+[2025-04-28 16:18:27] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-04-28 16:18:27] [debug] SQL: param[1]: '1'
+[2025-04-28 16:18:27] [debug] SQL: param[2]: '1'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=7.0095062255859E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00030827522277832
+[2025-04-28 16:18:27] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-04-28 16:18:27] [debug] SQL: param[1]: '1'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=2.0027160644531E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00032830238342285
+[2025-04-28 16:18:27] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-04-28 16:18:27] [debug] SQL: query_duration=2.5033950805664E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00035333633422852
+[2025-04-28 16:18:27] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-04-28 16:18:27] [debug] SQL: param[1]: '1'
+[2025-04-28 16:18:27] [debug] SQL: param[2]: '1'
+[2025-04-28 16:18:27] [debug] SQL: param[3]: 'app-admin'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=3.0994415283203E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00038433074951172
+[2025-04-28 16:18:27] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-04-28 16:18:27] [debug] SQL: param[1]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=3.0994415283203E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00041532516479492
+[2025-04-28 16:18:27] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-04-28 16:18:27] [debug] SQL: param[1]: '1745858547'
+[2025-04-28 16:18:27] [debug] SQL: param[2]: 'user|a:25:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;}postAuthenticationValidated|b:1;filters:1|s:11:"status:open";pcsrf_key|s:64:"f13185757ef31c8964b099ac57ae5bf35ef63f32b296177d3b70f20fff00d535";csrf_key|s:64:"c15087a6c31c3eeb2eec127dacf575c3d62b4f52ca020ed949e5945ef01df942";hasSubtaskInProgress|b:0;flash|a:0:{}'
+[2025-04-28 16:18:27] [debug] SQL: param[3]: 'oa5dluifnqkutqan0an5atc4ts'
+[2025-04-28 16:18:27] [debug] SQL: query_duration=2.9087066650391E-5
+[2025-04-28 16:18:27] [debug] SQL: total_execution_time=0.00044441223144531
+[2025-04-28 16:18:27] [debug] APP: nb_queries=9
+[2025-04-28 16:18:27] [debug] APP: rendering_time=0.028966903686523
+[2025-04-28 16:18:27] [debug] APP: memory_usage=5.34M
+[2025-04-28 16:18:27] [debug] APP: uri=/?controller=UserAjaxController&action=status
+[2025-04-28 16:18:27] [debug] ###############################################
