@@ -2521,3 +2521,258 @@ Column changed for task #8
 [2025-04-28 17:34:35] [debug] APP: memory_usage=5.35M
 [2025-04-28 17:34:35] [debug] APP: uri=/?controller=UserAjaxController&action=status
 [2025-04-28 17:34:35] [debug] ###############################################
+[2025-05-07 17:09:00] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-05-07 17:09:00] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-05-07 15:09:00] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-05-07 15:09:00] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-05-07 15:09:00] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: param[2]: '1746630540'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00027084350585938
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00027084350585938
+[2025-05-07 15:09:00] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00014090538024902
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.0004117488861084
+[2025-05-07 15:09:00] [debug] SQL: SELECT  * FROM "actions"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00010895729064941
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00052070617675781
+[2025-05-07 15:09:00] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=4.4822692871094E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00056552886962891
+[2025-05-07 15:09:00] [debug] SQL: SELECT  * FROM "remember_me"   WHERE "token" = ? AND "sequence" = ? AND "expiration" > ?    LIMIT 1
+[2025-05-07 15:09:00] [debug] SQL: param[1]: '57016a52bd58420eae76968948480787ed4af63ac548f2ca853e90a835667468'
+[2025-05-07 15:09:00] [debug] SQL: param[2]: 'b726a57e147ae493f7368b0a16788daef45899bce2724bbdd027990b4af1'
+[2025-05-07 15:09:00] [debug] SQL: param[3]: '1746630540'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00010013580322266
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00066566467285156
+[2025-05-07 15:09:00] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-05-07 15:09:00] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=4.887580871582E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00071454048156738
+[2025-05-07 15:09:00] [debug] SQL: INSERT INTO "sessions" ("id", "expire_at", "data") VALUES (:id, :expire_at, :data)
+[2025-05-07 15:09:00] [debug] SQL: param[id]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: param[expire_at]: '1746631980'
+[2025-05-07 15:09:00] [debug] SQL: param[data]: 'redirectAfterLogin|s:43:"/?controller=UserListController&action=show";'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00045299530029297
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.0011675357818604
+[2025-05-07 15:09:00] [debug] APP: nb_queries=7
+[2025-05-07 15:09:00] [debug] APP: rendering_time=0.081859827041626
+[2025-05-07 15:09:00] [debug] APP: memory_usage=5.07M
+[2025-05-07 15:09:00] [debug] APP: uri=/?controller=UserListController&action=show
+[2025-05-07 15:09:00] [debug] ###############################################
+[2025-05-07 17:09:00] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-05-07 17:09:00] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-05-07 15:09:00] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-05-07 15:09:00] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\AuthController::login
+[2025-05-07 15:09:00] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-05-07 15:09:00] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: param[2]: '1746630540'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=0.00012397766113281
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00012397766113281
+[2025-05-07 15:09:00] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=5.793571472168E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00018191337585449
+[2025-05-07 15:09:00] [debug] SQL: SELECT  * FROM "actions"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=4.3153762817383E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00022506713867188
+[2025-05-07 15:09:00] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-05-07 15:09:00] [debug] SQL: query_duration=3.2186508178711E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00025725364685059
+[2025-05-07 15:09:00] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-05-07 15:09:00] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=9.608268737793E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00035333633422852
+[2025-05-07 15:09:00] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-05-07 15:09:00] [debug] SQL: param[1]: '1746631980'
+[2025-05-07 15:09:00] [debug] SQL: param[2]: 'redirectAfterLogin|s:43:"/?controller=UserListController&action=show";csrf_key|s:64:"ebc625a8566fa7031b962c5579095d8cd8b6dadbfd8d6f26fade078e6fec439a";'
+[2025-05-07 15:09:00] [debug] SQL: param[3]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:00] [debug] SQL: query_duration=8.6069107055664E-5
+[2025-05-07 15:09:00] [debug] SQL: total_execution_time=0.00043940544128418
+[2025-05-07 15:09:00] [debug] APP: nb_queries=6
+[2025-05-07 15:09:00] [debug] APP: rendering_time=0.044638156890869
+[2025-05-07 15:09:00] [debug] APP: memory_usage=5.36M
+[2025-05-07 15:09:00] [debug] APP: uri=/?controller=AuthController&action=login
+[2025-05-07 15:09:00] [debug] ###############################################
+[2025-05-07 17:09:05] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-05-07 17:09:05] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-05-07 15:09:05] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-05-07 15:09:05] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\AuthController::check
+[2025-05-07 15:09:06] [debug] Subscriber executed: Kanboard\Subscriber\AuthSubscriber::afterLogin
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1746630545'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00017404556274414
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00017404556274414
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00021600723266602
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00039005279541016
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "actions"
+[2025-05-07 15:09:06] [debug] SQL: query_duration=5.793571472168E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00044798851013184
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-05-07 15:09:06] [debug] SQL: query_duration=2.8133392333984E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00047612190246582
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "users"  WHERE "username" = ? AND "lock_expiration_date" != ? AND "lock_expiration_date" >= ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'admin'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '0'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: '1746630545'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00013303756713867
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00060915946960449
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "users"."nb_failed_login" FROM "users"   WHERE "username" = ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'admin'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=2.1934509277344E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00063109397888184
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "users"."id", "users"."password" FROM "users"   WHERE "username" = ? AND "disable_login_form" = ? AND "is_ldap_user" = ? AND "is_active" = ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'admin'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '0'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: '0'
+[2025-05-07 15:09:06] [debug] SQL: param[4]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=2.6941299438477E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00065803527832031
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "users"   WHERE "id" = ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.0001521110534668
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00081014633178711
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=2.598762512207E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00083613395690918
+[2025-05-07 15:09:06] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1746631986'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: 'redirectAfterLogin|s:43:"/?controller=UserListController&action=show";csrf_key|s:64:"ebc625a8566fa7031b962c5579095d8cd8b6dadbfd8d6f26fade078e6fec439a";hasRememberMe|b:1;'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: 'n12df9lu1b2g832321toosnl3n'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=4.6014785766602E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00088214874267578
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1746630546'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=6.1988830566406E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00094413757324219
+[2025-05-07 15:09:06] [debug] SQL: UPDATE "users" SET "nb_failed_login"=?, "lock_expiration_date"=?  WHERE "username" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '0'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '0'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: 'admin'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=9.9897384643555E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0010440349578857
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "last_logins"."id" FROM "last_logins"   WHERE "user_id" = ?   ORDER BY "id" DESC
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=9.7036361694336E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0011410713195801
+[2025-05-07 15:09:06] [debug] SQL: INSERT INTO "last_logins" ("auth_type", "user_id", "ip", "user_agent", "date_creation") VALUES (:auth_type, :user_id, :ip, :user_agent, :date_creation)
+[2025-05-07 15:09:06] [debug] SQL: param[auth_type]: 'Database'
+[2025-05-07 15:09:06] [debug] SQL: param[user_id]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[ip]: '::1'
+[2025-05-07 15:09:06] [debug] SQL: param[user_agent]: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36'
+[2025-05-07 15:09:06] [debug] SQL: param[date_creation]: '1746630546'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00031018257141113
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0014512538909912
+[2025-05-07 15:09:06] [debug] SQL: DELETE FROM "remember_me"  WHERE "user_id" = ? AND "expiration" < ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1746630546'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=5.5074691772461E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0015063285827637
+[2025-05-07 15:09:06] [debug] SQL: INSERT INTO "remember_me" ("user_id", "ip", "user_agent", "token", "sequence", "expiration", "date_creation") VALUES (:user_id, :ip, :user_agent, :token, :sequence, :expiration, :date_creation)
+[2025-05-07 15:09:06] [debug] SQL: param[user_id]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[ip]: '::1'
+[2025-05-07 15:09:06] [debug] SQL: param[user_agent]: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36'
+[2025-05-07 15:09:06] [debug] SQL: param[token]: 'b0efc7eb9c0e399c742fd321b384f7d3547ebdd46c3cd3deee2183c91bc35e4a'
+[2025-05-07 15:09:06] [debug] SQL: param[sequence]: '33b9138ece5032d785a5498b160d8ba19b8af7f216ea4c8e1148ab539df5'
+[2025-05-07 15:09:06] [debug] SQL: param[expiration]: '1751814546'
+[2025-05-07 15:09:06] [debug] SQL: param[date_creation]: '1746630546'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=8.1062316894531E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0015873908996582
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=8.2969665527344E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0016703605651855
+[2025-05-07 15:09:06] [debug] SQL: INSERT INTO "sessions" ("id", "expire_at", "data") VALUES (:id, :expire_at, :data)
+[2025-05-07 15:09:06] [debug] SQL: param[id]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: param[expire_at]: '1746631986'
+[2025-05-07 15:09:06] [debug] SQL: param[data]: 'csrf_key|s:64:"ebc625a8566fa7031b962c5579095d8cd8b6dadbfd8d6f26fade078e6fec439a";hasRememberMe|b:1;user|a:27:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;s:15:"whatsapp_number";s:0:"";s:30:"whatsapp_notifications_enabled";i:0;}postAuthenticationValidated|b:0;'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=3.2901763916016E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0017032623291016
+[2025-05-07 15:09:06] [debug] APP: nb_queries=18
+[2025-05-07 15:09:06] [debug] APP: rendering_time=0.12413096427917
+[2025-05-07 15:09:06] [debug] APP: memory_usage=5.31M
+[2025-05-07 15:09:06] [debug] APP: uri=/?controller=AuthController&action=check
+[2025-05-07 15:09:06] [debug] ###############################################
+[2025-05-07 17:09:06] [debug] Kanboard\Core\Controller\Runner::executeMiddleware
+[2025-05-07 17:09:06] [debug] Subscriber executed: Kanboard\Subscriber\BootstrapSubscriber::execute
+[2025-05-07 15:09:06] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\AuthenticationMiddleware
+[2025-05-07 15:09:06] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\PostAuthenticationMiddleware
+[2025-05-07 15:09:06] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ApplicationAuthorizationMiddleware
+[2025-05-07 15:09:06] [debug] Kanboard\Core\Controller\BaseMiddleware::next => Kanboard\Middleware\ProjectAuthorizationMiddleware
+[2025-05-07 15:09:06] [debug] Kanboard\Core\Controller\Runner::executeController => \Kanboard\Controller\UserListController::show
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "sessions"."data" FROM "sessions"   WHERE "id" = ? AND "expire_at" > ?    LIMIT 1
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1746630546'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00011396408081055
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00011396408081055
+[2025-05-07 15:09:06] [debug] SQL: SELECT  "settings"."option", "settings"."value" FROM "settings"
+[2025-05-07 15:09:06] [debug] SQL: query_duration=5.3882598876953E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0001678466796875
+[2025-05-07 15:09:06] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=8.9168548583984E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00025701522827148
+[2025-05-07 15:09:06] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00073099136352539
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.00098800659179688
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "actions"   WHERE "project_id" IN (?)
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=3.2901763916016E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0010209083557129
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "action_has_params"
+[2025-05-07 15:09:06] [debug] SQL: query_duration=4.1007995605469E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0010619163513184
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "users"  WHERE "id" = ? AND "is_active" = ? AND "role" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: 'app-admin'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=4.2915344238281E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0011048316955566
+[2025-05-07 15:09:06] [debug] SQL: SELECT COUNT(*) FROM "users" 
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00057506561279297
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0016798973083496
+[2025-05-07 15:09:06] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_users" ON "project_has_users"."project_id"="projects"."id"  WHERE project_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=7.0095062255859E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0017499923706055
+[2025-05-07 15:09:06] [debug] SQL: SELECT  projects.id, projects.name FROM "projects" LEFT JOIN "project_has_groups" ON "project_has_groups"."project_id"="projects"."id" LEFT JOIN "group_has_users" ON "group_has_users"."group_id"="project_has_groups"."group_id"  WHERE group_has_users.user_id = ? AND projects.is_active IN (?)
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=4.7922134399414E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0017979145050049
+[2025-05-07 15:09:06] [debug] SQL: SELECT  * FROM "users"     ORDER BY users.username ASC  LIMIT 30
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00011587142944336
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0019137859344482
+[2025-05-07 15:09:06] [debug] SQL: SELECT  groups.id, groups.external_id, groups.name FROM "group_has_users" LEFT JOIN "groups" ON "groups"."id"="group_has_users"."group_id"  WHERE group_has_users.user_id = ?   ORDER BY groups.name ASC
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00035285949707031
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0022666454315186
+[2025-05-07 15:09:06] [debug] SQL: SELECT  groups.id, groups.external_id, groups.name FROM "group_has_users" LEFT JOIN "groups" ON "groups"."id"="group_has_users"."group_id"  WHERE group_has_users.user_id = ?   ORDER BY groups.name ASC
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '2'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=6.7949295043945E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0023345947265625
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "user_has_unread_notifications"  WHERE "user_id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00015115737915039
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0024857521057129
+[2025-05-07 15:09:06] [debug] SQL: SELECT 1 FROM "sessions"  WHERE "id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=0.00010991096496582
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0025956630706787
+[2025-05-07 15:09:06] [debug] SQL: UPDATE "sessions" SET "expire_at"=?, "data"=?  WHERE "id" = ?
+[2025-05-07 15:09:06] [debug] SQL: param[1]: '1746631986'
+[2025-05-07 15:09:06] [debug] SQL: param[2]: 'csrf_key|s:64:"ebc625a8566fa7031b962c5579095d8cd8b6dadbfd8d6f26fade078e6fec439a";hasRememberMe|b:1;user|a:27:{s:2:"id";i:1;s:8:"username";s:5:"admin";s:12:"is_ldap_user";b:0;s:4:"name";N;s:5:"email";N;s:9:"google_id";N;s:9:"github_id";N;s:21:"notifications_enabled";i:1;s:8:"timezone";N;s:8:"language";N;s:18:"disable_login_form";i:0;s:19:"twofactor_activated";b:0;s:16:"twofactor_secret";N;s:5:"token";s:0:"";s:20:"notifications_filter";i:1;s:15:"nb_failed_login";i:0;s:20:"lock_expiration_date";i:0;s:9:"gitlab_id";N;s:4:"role";s:9:"app-admin";s:9:"is_active";i:1;s:11:"avatar_path";N;s:16:"api_access_token";N;s:6:"filter";N;s:5:"theme";s:5:"light";s:11:"telegram_id";N;s:15:"whatsapp_number";s:0:"";s:30:"whatsapp_notifications_enabled";i:0;}postAuthenticationValidated|b:0;hasSubtaskInProgress|b:0;'
+[2025-05-07 15:09:06] [debug] SQL: param[3]: 'jqjlp1lgo852omndsma91epbjv'
+[2025-05-07 15:09:06] [debug] SQL: query_duration=4.2200088500977E-5
+[2025-05-07 15:09:06] [debug] SQL: total_execution_time=0.0026378631591797
+[2025-05-07 15:09:06] [debug] APP: nb_queries=16
+[2025-05-07 15:09:06] [debug] APP: rendering_time=0.064327001571655
+[2025-05-07 15:09:06] [debug] APP: memory_usage=5.66M
+[2025-05-07 15:09:06] [debug] APP: uri=/?controller=UserListController&action=show
+[2025-05-07 15:09:06] [debug] ###############################################
