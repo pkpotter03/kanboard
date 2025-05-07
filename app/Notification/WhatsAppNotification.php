@@ -36,7 +36,7 @@ class WhatsAppNotification extends Base implements NotificationInterface
         $user = $this->userModel->getById($user['id']);
         $this->logger->debug('WhatsAppNotification::notifyUser - Complete user data: ' . json_encode($user));
         
-        if (! empty($user['whatsapp_number']) && isset($user['whatsapp_notifications_enabled']) && $user['whatsapp_notifications_enabled'] == 1) {
+        if (!empty($user['whatsapp_number'])) {
             $this->logger->debug('WhatsAppNotification::notifyUser - Sending to WhatsApp number: ' . $user['whatsapp_number']);
             
             $message = $this->getMessageContent($event_name, $event_data);
@@ -48,11 +48,9 @@ class WhatsAppNotification extends Base implements NotificationInterface
             );
             
             $this->logger->debug('WhatsAppNotification::notifyUser - Send result: ' . ($result ? 'success' : 'failed'));
-        } else {
+            
             if (empty($user['whatsapp_number'])) {
                 $this->logger->error('WhatsAppNotification::notifyUser - No WhatsApp number found for user: ' . $user['username']);
-            } else {
-                $this->logger->error('WhatsAppNotification::notifyUser - WhatsApp notifications not enabled for user: ' . $user['username']);
             }
         }
     }

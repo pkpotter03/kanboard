@@ -1,4 +1,5 @@
 <?php
+// Migration for whatsapp_notifications_enabled is now obsolete and can be ignored.
 
 namespace Kanboard\Schema;
 

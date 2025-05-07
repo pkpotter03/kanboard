@@ -7,6 +7,8 @@
 
     <fieldset>
         <legend><?= t('Profile') ?></legend>
+        <div style="display: flex; align-items: center;">
+        <div class="form-field">
         <?= $this->form->label(t('Username'), 'username') ?>
         <?= $this->form->text('username', $values, $errors, array('autofocus', 'required', 'autocomplete="username"', isset($user['is_ldap_user']) && $user['is_ldap_user'] == 1 ? 'readonly' : '', 'maxlength="191"')) ?>
 
@@ -15,17 +17,15 @@
 
         <?= $this->form->label(t('Email'), 'email') ?>
         <?= $this->form->email('email', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_email') ? 'autocomplete="email"' : 'readonly')) ?>
-
-        <div class="form-field">
-            <?= $this->form->label(t('WhatsApp Number'), 'whatsapp_number') ?>
-            <div style="display: flex; align-items: center;">
-                <?= $this->form->text('whatsapp_number', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_whatsapp_number') ? 'autocomplete="off"' : 'readonly', 'placeholder' => '+1234567890')) ?>
-                <img src="<?= $this->url->base() ?>assets/img/whatsapp-icon.svg" alt="WhatsApp QR" class="qr-icon" style="margin-left: 50px;">
-            </div>
-        </div>
-
+        
+        <?= $this->form->label(t('WhatsApp Number'), 'whatsapp_number') ?>
+        <?= $this->form->text('whatsapp_number', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_whatsapp_number') ? 'autocomplete="off"' : 'readonly', 'placeholder' => '+1234567890')) ?>
+        
         <?= $this->form->label(t('Telegram ID'), 'telegram_id') ?>
         <?= $this->form->text('telegram_id', $values, $errors, array($this->user->hasAccess('UserModificationController', 'show/edit_telegram_id') ? 'autocomplete="off"' : 'readonly')) ?>
+        </div>
+        <img src="<?= $this->url->base() ?>assets/img/whatsapp-icon.png" alt="WhatsApp QR" class="qr-icon" style="margin-left: 50px; width: 20%; height: 20%;">
+        </div>
     </fieldset>
 
     <fieldset>

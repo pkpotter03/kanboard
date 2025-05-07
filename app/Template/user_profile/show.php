@@ -29,9 +29,6 @@
                 <?= $this->form->label(t('Notification types'), 'notification_types') ?>
                 <?= $this->form->checkboxes('notification_types', $notification_types, $values['notification_types']) ?>
 
-                <?= $this->form->label(t('WhatsApp Notifications'), 'whatsapp_notifications_enabled') ?>
-                <?= $this->form->checkbox('whatsapp_notifications_enabled', t('Enable WhatsApp notifications'), 1, $values['whatsapp_notifications_enabled'] == 1) ?>
-
                 <?= $this->form->label(t('Notification filters'), 'notifications_filter') ?>
                 <?= $this->form->select('notifications_filter', $notification_filters, $values, $errors) ?>
 

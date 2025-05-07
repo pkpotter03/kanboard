@@ -22,8 +22,8 @@ Thumbs.db
 # Logs
 *.log
 logs/
-data/debug.log
-data/db.sqlite
+*data/debug.log
+*data/db.sqlite
 
 # Cache
 cache/
