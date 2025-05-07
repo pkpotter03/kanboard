@@ -56,5 +56,8 @@ $container->register(new Kanboard\ServiceProvider\ApiProvider());
 $container->register(new Kanboard\ServiceProvider\CommandProvider());
 $container->register(new Kanboard\ServiceProvider\ObjectStorageProvider());
 $container->register(new Kanboard\ServiceProvider\PluginProvider());
+<<<<<<< HEAD
 $container->register(new Kanboard\ServiceProvider\TelegramProvider());
 $container->register(new Kanboard\ServiceProvider\WhatsAppProvider());
+=======
+>>>>>>> c92a74092bb848c5dd908c0ce5ddcd19d4fdbf19

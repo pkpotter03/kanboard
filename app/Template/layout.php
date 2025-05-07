@@ -26,6 +26,8 @@
         <?php if (! isset($not_editable)): ?>
             <?= $this->asset->js('assets/js/vendor.min.js') ?>
             <?= $this->asset->js('assets/js/app.min.js') ?>
+            <?= $this->asset->js('assets/js/components/voice-commands.js') ?>
+            <?= $this->asset->js('assets/js/core/voice-init.js') ?>
         <?php endif ?>
 
         <?= $this->hook->asset('css', 'template:layout:css') ?>
@@ -49,6 +51,11 @@
         </title>
 
         <?= $this->hook->render('template:layout:head') ?>
+
+        <!-- Add this after the CSRF token meta tag -->
+        <?php if (isset($project) && isset($project['id'])): ?>
+        <meta name="project-id" content="<?= $project['id'] ?>">
+        <?php endif ?>
     </head>
     <body data-status-url="<?= $this->url->href('UserAjaxController', 'status') ?>"
           data-login-url="<?= $this->url->href('AuthController', 'login') ?>"
@@ -75,5 +82,73 @@
         </section>
         <?= $this->hook->render('template:layout:bottom') ?>
     <?php endif ?>
+
+    <!-- Add this just before the closing body tag -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize CSRF token from meta tag
+            var metaToken = document.querySelector('meta[name="csrf-token"]');
+            if (metaToken) {
+                KB.token = metaToken.getAttribute('content');
+                console.log('CSRF Token initialized:', !!KB.token);
+            } else {
+                console.error('CSRF token meta tag not found!');
+            }
+            
+            // Initialize voice commands
+            console.log('DOM loaded, initializing voice commands...');
+            if (typeof KB !== 'undefined') {
+                KB.on('dom.ready', function() {
+                    console.log('KB ready, rendering components...');
+                    KB.render();
+                });
+            } else {
+                console.error('KB object not found!');
+            }
+        });
+
+        function submitForm() {
+            var form = getForm();
+            if (form) {
+                var url = form.getAttribute('action');
+                if (url) {
+                    KB.http.postForm(url, form).success(function(response) {
+                        // Handle response
+                    }).error(function(error) {
+                        if (error.message === 'Access Forbidden') {
+                            showStatus('Security token expired. Please refresh the page.', true);
+                        }
+                    });
+                }
+            }
+        }
+
+        function uploadFiles() {
+            if (files.length > 0) {
+                KB.http.uploadFile(options.url, files[currentFileIndex], options.csrf, onProgress, onComplete, onError, onServerError);
+            }
+        }
+
+        function submitJson() {
+            var url = 'your-json-endpoint.php';
+            var command = 'your-command';
+            var projectId = 'your-project-id';
+            var taskId = 'your-task-id';
+            var csrfToken = KB.token;
+
+            KB.http.postJson(url, {
+                command: command,
+                project_id: projectId,
+                task_id: taskId,
+                csrf_token: csrfToken
+            }).success(function(response) {
+                // Handle response
+            }).error(function(error) {
+                if (error.message === 'Access Forbidden') {
+                    showStatus('Security token expired. Please refresh the page.', true);
+                }
+            });
+        }
+    </script>
     </body>
 </html>
