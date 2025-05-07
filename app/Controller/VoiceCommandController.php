@@ -54,45 +54,21 @@ class VoiceCommandController extends BaseController
         $normalizedCommand = strtolower(trim($command));
         error_log("Normalized command: " . $normalizedCommand);
 
-        // Helper function to check if words are similar
-        function isSimilar($word1, $word2) {
-            $word1 = strtolower($word1);
-            $word2 = strtolower($word2);
-            
-            // Direct matches and common voice recognition variations
-            $variations = [
-                'assign' => ['assign', 'sin', 'assigned', 'design'],
-                'to' => ['to', '2', 'two', 'too']
-            ];
-            
-            // Check if words are in the same variation group
-            foreach ($variations as $base => $vars) {
-                if (in_array($word1, $vars) && in_array($word2, $vars)) {
-                    return true;
-                }
-            }
-            
-            return $word1 === $word2;
-        }
+        // First, define the number map at the start of the process function
+        $numberMap = [
+            'first' => 1, 'second' => 2, 'third' => 3, 'fourth' => 4, 'fifth' => 5,
+            'sixth' => 6, 'seventh' => 7, 'eighth' => 8, 'ninth' => 9, 'tenth' => 10,
+            'one' => 1, 'two' => 2, 'three' => 3, 'four' => 4, 'five' => 5,
+            'six' => 6, 'seven' => 7, 'eight' => 8, 'nine' => 9, 'ten' => 10
+        ];
 
-        // Check for "assign nth task to member" command with variations
-        if (preg_match('/^(assign|sin|assigned|design)\s+(first|second|third|fourth|fifth|\d+(?:st|nd|rd|th)?)\s+task\s+(?:to|2|two|too)\s+(.+)$/i', $command, $matches)) {
-            $numberMap = [
-                'first' => 1,
-                'second' => 2,
-                'third' => 3,
-                'fourth' => 4,
-                'fifth' => 5
-            ];
-            
+        // 1. Assign task command
+        if (preg_match('/^(assign|sin|assigned|design)\s+(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+(?:st|nd|rd|th)?)\s+task\s+(?:to|2|two|too)\s+(.+)$/i', $command, $matches)) {
             $taskPosition = isset($numberMap[strtolower($matches[2])]) 
                 ? $numberMap[strtolower($matches[2])] 
                 : (int)preg_replace('/(?:st|nd|rd|th)$/', '', $matches[2]);
-                
-            $assigneeName = $matches[3];
             
-            // Debug log
-            error_log("Assigning task position {$taskPosition} to: " . $assigneeName);
+            $assigneeName = $matches[3];
             
             // Try to find the user by username first
             $user = $this->userModel->getByUsername($assigneeName);
@@ -141,57 +117,40 @@ class VoiceCommandController extends BaseController
                     if ($taskPosition < 1 || $taskPosition > count($tasks)) {
                         $response['status'] = 'error';
                         $response['message'] = t('Invalid task position. Available tasks: ') . count($tasks);
-                        $this->response->json($response);
-                        return;
-                    }
-                    
-                    // Get the task at the specified position (1-based index)
-                    $task = $tasks[$taskPosition - 1];
-                    
-                    // Update task owner
-                    $result = $this->taskModificationModel->update([
-                        'id' => $task['id'],
-                        'owner_id' => $user['id']
-                    ]);
-                    
-                    if ($result) {
-                        $response['status'] = 'success';
-                        $response['message'] = t('Task assigned to ') . ($user['name'] ?: $user['username']);
-                        $response['action'] = 'reload';
-                        $response['data'] = array(
-                            'task_id' => $task['id'],
-                            'project_id' => $project_id
-                        );
-                    } else {
-                        $response['status'] = 'error';
-                        $response['message'] = t('Unable to assign task');
                         $response['action'] = 'alert';
+                    } else {
+                        // Get the task at the specified position (1-based index)
+                        $task = $tasks[$taskPosition - 1];
+                        
+                        // Update task owner
+                        $result = $this->taskModificationModel->update([
+                            'id' => $task['id'],
+                            'owner_id' => $user['id']
+                        ]);
+                        
+                        if ($result) {
+                            $response['status'] = 'success';
+                            $response['message'] = t('Task assigned to ') . ($user['name'] ?: $user['username']);
+                            $response['action'] = 'reload';
+                            $response['data'] = array(
+                                'task_id' => $task['id'],
+                                'project_id' => $project_id
+                            );
+                        } else {
+                            $response['status'] = 'error';
+                            $response['message'] = t('Unable to assign task');
+                            $response['action'] = 'alert';
+                        }
                     }
                 }
             }
         }
-        // Check for "open project dashboard" command
-        else if (preg_match('/^open\s+(.+?)\'?s?\s+dashboard$/i', $command, $matches)) {
-            $projectName = $matches[1];
-            $project = $this->projectModel->getByName($projectName);
-            
-            if ($project) {
-                $response['action'] = 'redirect';
-                $response['data'] = array(
-                    'url' => $this->helper->url->to('BoardViewController', 'show', array('project_id' => $project['id']))
-                );
-                $response['message'] = t('Opening dashboard for project: ') . $projectName;
-            } else {
-                $response['status'] = 'error';
-                $response['message'] = t('Project not found: ') . $projectName;
-            }
-        }
-        // Check for "create task <title>" command
-        else if (preg_match('/^create\s+task\s+(.+?)$/i', $command, $matches)) {
-            $taskTitle = $matches[1];
-            
-            // Debug log
-            error_log("Creating task with title: " . $taskTitle);
+        // 2. Move task command
+        else if (preg_match('/^(?:move|put|set)\s+(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+(?:st|nd|rd|th)?)\s+task\s+(?:to|in|into|in to)\s+(backlog|ready|work in progress|done)$/i', $command, $matches)) {
+            $taskPosition = isset($numberMap[strtolower($matches[1])]) 
+                ? $numberMap[strtolower($matches[1])] 
+                : (int)preg_replace('/(?:st|nd|rd|th)$/', '', $matches[1]);
+            $targetColumn = strtolower($matches[2]);
             
             // If no project_id is provided, try to get the current project
             if (!$project_id) {
@@ -203,7 +162,64 @@ class VoiceCommandController extends BaseController
                 $response['message'] = t('Please select a project first');
                 $response['action'] = 'alert';
             } else {
-                // Create the task
+                // Get tasks in the current project ordered by position
+                $tasks = $this->taskFinderModel->getAll($project_id);
+                
+                // Check if the position is valid
+                if ($taskPosition < 1 || $taskPosition > count($tasks)) {
+                    $response['status'] = 'error';
+                    $response['message'] = t('Invalid task position. Available tasks: ') . count($tasks);
+                    $response['action'] = 'alert';
+                } else {
+                    // Get the task at the specified position (1-based index)
+                    $task = $tasks[$taskPosition - 1];
+                    
+                    // Get all columns for the project
+                    $columns = $this->columnModel->getList($project_id);
+                    
+                    // Find the target column ID
+                    $targetColumnId = null;
+                    foreach ($columns as $columnId => $columnName) {
+                        if (strtolower($columnName) === $targetColumn) {
+                            $targetColumnId = $columnId;
+                            break;
+                        }
+                    }
+                    
+                    if ($targetColumnId) {
+                        $this->taskPositionModel->movePosition(
+                            $project_id,
+                            $task['id'],
+                            $targetColumnId,
+                            1,
+                            $task['swimlane_id']
+                        );
+                        $response['message'] = t('Task moved to ') . ucfirst($targetColumn);
+                        $response['action'] = 'reload';
+                    } else {
+                        $response['status'] = 'error';
+                        $response['message'] = t('Column not found: ') . ucfirst($targetColumn);
+                        $response['action'] = 'alert';
+                    }
+                }
+            }
+        }
+        // 3. Create task command
+        else if (preg_match('/^(?:create|make|add)\s+(?:a\s+)?task\s+(.+)$/i', $command, $matches)) {
+            $taskTitle = $matches[1];
+            
+            // Debug log
+            error_log("Creating task with title: " . $taskTitle);
+            
+            if (!$project_id) {
+                $project_id = $this->request->getIntegerParam('project_id');
+            }
+            
+            if (!$project_id) {
+                $response['status'] = 'error';
+                $response['message'] = t('Please select a project first');
+                $response['action'] = 'alert';
+            } else {
                 $taskData = array(
                     'title' => $taskTitle,
                     'project_id' => $project_id,
@@ -227,13 +243,14 @@ class VoiceCommandController extends BaseController
                 }
             }
         }
-        // Check for "create task and assign" command with variations
-        else if (preg_match('/^create\s+task\s+(.+?)\s+and\s+assign(?:ed)?\s+to\s+(.+)$/i', $command, $matches)) {
-            $taskTitle = $matches[1];
-            $assigneeName = $matches[2];
+        // 4. Create and assign task command
+        else if (preg_match('/^(?:create|make|add)\s+(?:a\s+)?task\s+(.+?)(?:\s+and\s+assign(?:ed)?\s+(?:to|2|two|too)\s+)(.+)$/i', $command, $matches)) {
+            $taskTitle = trim($matches[1]);  // Trim any extra spaces
+            $assigneeName = trim($matches[2]);
             
             // Debug log
-            error_log("Creating task: " . $taskTitle . " for assignee: " . $assigneeName);
+            error_log("Creating task with title: " . $taskTitle);
+            error_log("Assigning to user: " . $assigneeName);
             
             // Try to find the user by username first
             $user = $this->userModel->getByUsername($assigneeName);
@@ -280,7 +297,8 @@ class VoiceCommandController extends BaseController
                         'project_id' => $project_id,
                         'creator_id' => $this->userSession->getId(),
                         'date_creation' => time(),
-                        'column_id' => $this->columnModel->getFirstColumnId($project_id)
+                        'column_id' => $this->columnModel->getFirstColumnId($project_id),
+                        'owner_id' => $user['id']  // Add owner_id to assign the task
                     );
                     
                     $task_id = $this->taskCreationModel->create($taskData);
@@ -299,53 +317,39 @@ class VoiceCommandController extends BaseController
                 }
             }
         }
-        // Handle existing commands
+        // 5. Open dashboard command
+        else if (preg_match('/^(?:open|show|display|go to)\s+(.+?)\s+(?:dashboard|board|project)$/i', $command, $matches)) {
+            $projectName = $matches[1];
+            $project = $this->projectModel->getByName($projectName);
+            
+            if ($project) {
+                $response['action'] = 'redirect';
+                $response['data'] = array(
+                    'url' => $this->helper->url->to('BoardViewController', 'show', array('project_id' => $project['id']))
+                );
+                $response['message'] = t('Opening dashboard for project: ') . $projectName;
+            } else {
+                $response['status'] = 'error';
+                $response['message'] = t('Project not found: ') . $projectName;
+            }
+        }
+        // 6. Basic commands
         else {
             switch ($normalizedCommand) {
-                case 'create task':
-                case 'create a task':
-                case 'make task':
-                case 'make a task':
-                    $response['action'] = 'openModal';
-                    $response['data'] = array(
-                        'url' => $this->helper->url->to('TaskCreationController', 'show', array('project_id' => $project_id))
-                    );
-                    break;
-
-                case 'move task to done':
-                case 'mark task as done':
-                case 'complete task':
-                    if ($task_id && $project_id) {
-                        // Get the "Done" column ID for the project
-                        $columns = $this->columnModel->getList($project_id);
-                        $done_column_id = array_search('Done', $columns);
-                        
-                        if ($done_column_id) {
-                            $task = $this->taskFinderModel->getById($task_id);
-                            if ($task) {
-                                $this->taskPositionModel->movePosition(
-                                    $project_id,
-                                    $task_id,
-                                    $done_column_id,
-                                    1,
-                                    $task['swimlane_id']
-                                );
-                                $response['message'] = t('Task moved to Done');
-                            }
-                        }
-                    }
-                    break;
-
                 case 'show time':
                 case 'what time is it':
                 case 'current time':
+                case 'time please':
+                case 'tell me the time':
                     $response['message'] = date('Y-m-d H:i:s');
                     break;
 
                 default:
-                    error_log("No command match found for: " . $normalizedCommand);
-                    $response['status'] = 'error';
-                    $response['message'] = t('Unknown command: ') . $command;
+                    // Only set error if no other command matched
+                    if ($response['status'] !== 'success') {
+                        $response['status'] = 'error';
+                        $response['message'] = t('Unknown command: ') . $command;
+                    }
             }
         }
 
